@@ -134,6 +134,28 @@ char pos_9[400] = {"\
 \n==========================================\n"
 };
 
+char pos_10[400] = {"\
+\n       ||           ||           || \
+\n       ||           ||           || \
+\n       ||           ||           || \
+\n      OOOO          ||           || \
+\n   OOOOOOOOOO     OOOOOO      OOOOOOOO \
+\n========================================== \
+\n|     T  0         T  1         T  2     |\
+\n==========================================\n"
+};
+
+char pos_11[400] = {"\
+\n       ||           ||           || \
+\n       ||           ||           || \
+\n       ||           ||           || \
+\n       ||           ||          OOOO \
+\n   OOOOOOOOOO     OOOOOO      OOOOOOOO \
+\n========================================== \
+\n|     T  0         T  1         T  2     |\
+\n==========================================\n"
+};
+
 int main(void)
 {
 	char sair = 'n'; 
@@ -146,6 +168,10 @@ int main(void)
     printf("Para que torre gostaria de mover? ");
     scanf("%d", &b);
     mover(a, b);
+    if (torre[2][3] == 1) {
+    	printf("\n\nPARABENS, VOCE TERMINOU O JOGO!");
+    	break;
+	}
 	}
 
     return 0;
@@ -165,17 +191,27 @@ int main(void)
             level[b] += 1;
         	}
 
-           	
 
-		} else if (torre[a][0] != 0 && torre[b][0] != 0 && torre[b][level[b]] > torre[a][level[a]]){
+		} else if (level[a] == 0 && torre[a][0] != 0 && torre[b][0] != 0 && torre[b][level[b]] > torre[a][level[a]]){
 			torre[b][level[b]+1] = torre[a][level[a]];
             torre[a][level[a]] = 0;
-            if (level[a] != 0){
-            	level[a] -= 1;
-			}
-			if (level[b] != 0){
             level[b] += 1;
-        	}
+
+		}
+           	
+
+		else if (torre[a][0] != 0 && torre[b][0] != 0 && torre[b][level[b]] > torre[a][level[a]]){
+			torre[b][level[b]+1] = torre[a][level[a]];
+            torre[a][level[a]] = 0;
+            level[a] -= 1;
+            level[b] += 1;
+
+		}
+		
+		else if (torre[a][level[a]] != 0 && torre[b][level[b]] == 0){
+			torre[b][level[b]] = torre[a][level[a]];
+            torre[a][level[a]] = 0;
+            level[b] += 1;
 
 		}
 		
@@ -204,6 +240,10 @@ int main(void)
 			printf("%s", pos_8);
 		} else if  (torre[1][0] == 1 && torre[2][0] == 2 && torre[0][0] == 4){
 			printf("%s", pos_9);
+		} else if  (torre[0][0] == 4 && torre[0][1] == 1 && torre[1][0] == 2){
+			printf("%s", pos_10);
+		} else if  (torre[0][0] == 4 && torre[1][0] == 2 && torre[2][1] == 1){
+			printf("%s", pos_11);
 		} else {
             printf("\n");
         int i, j;
@@ -214,13 +254,10 @@ int main(void)
 	                printf("%d ", torre[i][j]);
 	            }
 	            printf("\n");
+	            printf("\n");
         }
         }
 
-		
-        //printf("Level da torre 0: %d ", level[0]);
-        //printf("Level da torre 1: %d ", level[1]);
-        //printf("Level da torre 2: %d ", level[2]);
     }
 
 
