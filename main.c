@@ -380,6 +380,39 @@ int main(void)
 	// Condicao que testa se o jogador venceu o jogo
 	if (torre[2][3] == 1) {
     	printf("\n\nPARABENS, VOCE TERMINOU O JOGO!");
+    	int n = 1;
+			Beep(293,250);
+			Beep(293,250);
+			Beep(220,250);
+			Beep(220,250);
+			Beep(293,250);
+			Beep(293,250);
+			Beep(330,250);
+			Beep(330,250);
+			Beep(349,250);
+			Beep(349,250);
+			Beep(330,250);
+			Beep(330,250);
+			Beep(293,250);
+			Beep(293,250);
+			Beep(330,250);
+			Beep(293,250);
+			Beep(262,250);
+			Beep(262,250);
+			Beep(196,250);
+			Beep(196,250);
+			Beep(262,250);
+			Beep(262,250);
+			Beep(293,250);
+			Beep(293,250);
+			Beep(330,250);
+			Beep(330,250);
+			Beep(293,250);
+			Beep(293,250);
+			Beep(262,250);
+			Beep(262,250);
+			Beep(330,250);
+			Beep(262,250);
     	break;
 	}
 	}
