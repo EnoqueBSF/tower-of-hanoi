@@ -387,7 +387,7 @@ int main(void)
     return 0;
 }
 
-    void mover(int a, int b)
+void mover(int a, int b)
     {
     	system("cls");
     	system("color F5");
@@ -432,13 +432,12 @@ int main(void)
             level[b] += 1;
 
 		}
-		
-		
 		else {
 			printf("\nMOVIMENTO NAO PERMITIDO!\n");
 			Beep(500, 500);
 		}
         
+        // Le a matriz e gera os prints:
         if (torre[0][3] == 1) {
             printf("%s", pos_0);
         } else if  (torre[1][0] == 4){
